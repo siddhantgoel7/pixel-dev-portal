@@ -29,15 +29,13 @@ const SkillsSection = () => {
     }
   ];
 
-  const tools = [
-    { name: "JS", icon: "🟨" },
-    { name: "TS", icon: "🔷" },
-    { name: "React", icon: "⚛️" },
-    { name: "Node", icon: "🟢" },
-    { name: "Python", icon: "🐍" },
-    { name: "Docker", icon: "🐳" },
-    { name: "Git", icon: "📱" },
-    { name: "AWS", icon: "☁️" }
+  const quickTools = [
+    { name: "JavaScript", emoji: "🟨" },
+    { name: "TypeScript", emoji: "🔷" },
+    { name: "React", emoji: "⚛️" },
+    { name: "Node.js", emoji: "🟢" },
+    { name: "Python", emoji: "🐍" },
+    { name: "Docker", emoji: "🐳" }
   ];
 
   return (
@@ -93,12 +91,12 @@ const SkillsSection = () => {
           </div>
           
           <div>
-            <h3 className="text-lg sm:text-xl font-pixel mb-6">Quick Access Bar</h3>
-            <div className="grid grid-cols-4 gap-2 sm:gap-3 mb-8">
-              {tools.map((tool, index) => (
+            <h3 className="text-lg sm:text-xl font-pixel mb-6">Quick Tools</h3>
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-8">
+              {quickTools.map((tool, index) => (
                 <div key={index} className="inventory-slot group cursor-pointer">
                   <div className="text-center relative">
-                    <div className="text-xl sm:text-2xl mb-1 group-hover:animate-bounce">{tool.icon}</div>
+                    <div className="text-xl sm:text-2xl mb-1 group-hover:animate-bounce">{tool.emoji}</div>
                     <div className="text-xs font-pixel opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 rounded whitespace-nowrap z-10">
                       {tool.name}
                     </div>
