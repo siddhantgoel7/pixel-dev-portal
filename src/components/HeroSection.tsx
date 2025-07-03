@@ -28,12 +28,12 @@ const HeroSection = () => {
             </div>
             
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-pixel leading-tight">
-              <span className="block glitch-text" data-text="JOHN">JOHN</span>
-              <span className="block text-yellow-300 glitch-text" data-text="DOE">DOE</span>
+              <span className="block glitch-text" data-text="SIDDHANT">SIDDHANT</span>
+              <span className="block text-yellow-300 glitch-text" data-text="GOEL">GOEL</span>
             </h1>
             
             <div className="text-lg sm:text-xl lg:text-2xl font-mono">
-              <span className="typewriter">Software Engineer & Block Builder</span>
+              <span className="typewriter">Software Engineer & student at Ualberta</span>
             </div>
             
             <p className="text-base sm:text-lg opacity-90 max-w-md leading-relaxed">
@@ -41,7 +41,7 @@ const HeroSection = () => {
               Building the future, one block of code at a time.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            {/* <div className="flex flex-col sm:flex-row gap-4">
               <button className="retro-button-green flex items-center justify-center gap-2">
                 <Code className="w-4 h-4" />
                 View Projects
@@ -49,7 +49,7 @@ const HeroSection = () => {
               <button className="pixel-border bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-6 shadow-pixel hover:shadow-pixel-hover transition-all duration-200 font-pixel text-xs">
                 Download Resume
               </button>
-            </div>
+            </div> */}
           </div>
           
           <div className="flex justify-center order-1 lg:order-2">

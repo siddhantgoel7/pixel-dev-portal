@@ -5,7 +5,7 @@ const AboutSection = () => {
   const stats = [
     { icon: Calendar, label: "Years Experience", value: "5+" },
     { icon: Coffee, label: "Cups of Coffee", value: "∞" },
-    { icon: MapPin, label: "Location", value: "Digital World" },
+    { icon: MapPin, label: "Location", value: "Edmonton, AB" },
     { icon: User, label: "Status", value: "Coding" }
   ];
 

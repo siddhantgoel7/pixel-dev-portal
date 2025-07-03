@@ -47,7 +47,7 @@ const ContactSection = () => {
               </p>
               <div className="font-mono text-xs sm:text-sm bg-black/30 p-3 sm:p-4 rounded space-y-1">
                 <div className="text-green-300">$ whoami</div>
-                <div className="animate-pulse">john.doe@developer.local</div>
+                <div className="animate-pulse">siddhant.goel@developer.local</div>
                 <div className="text-green-300">$ status</div>
                 <div className="animate-pulse">Available for new opportunities</div>
               </div>
