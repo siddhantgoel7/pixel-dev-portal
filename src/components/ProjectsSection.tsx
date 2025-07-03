@@ -1,43 +1,30 @@
-
 import { ExternalLink, Github, Star } from "lucide-react";
 
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "BlockChain Explorer",
-      description: "A pixel-perfect blockchain explorer built with React and Web3. Features real-time transaction tracking and beautiful visualizations.",
-      tech: ["React", "TypeScript", "Web3.js", "Tailwind"],
-      github: "#",
-      live: "#",
-      stars: 142,
-      image: "🔗"
+      title: "Mood Tracker App",
+      description: "Android app for mood logging with real-time sync, emotion-mapped UI, geotagged pins, social features, and Firebase integration.",
+      tech: ["Android SDK", "Firebase", "Java", "JUnit", "Espresso"],
+      github: "https://github.com/siddhantgoel7/project-kernelcrew",
+      stars: 82,
+      image: "📱"
     },
     {
-      title: "Pixel Art Generator",
-      description: "AI-powered tool that converts images into Minecraft-style pixel art. Built with Python backend and React frontend.",
-      tech: ["Python", "React", "TensorFlow", "FastAPI"],
-      github: "#",
-      live: "#",
-      stars: 89,
-      image: "🎨"
+      title: "ConsoleTweeter CLI",
+      description: "A Python-based social media CLI with tweeting, hashtag parsing, user auth, follow system, and MongoDB + SQLite integration.",
+      tech: ["Python", "MongoDB", "SQLite", "CLI"],
+      github: "https://github.com/siddhantgoel7/ConsoleTweeter-CLI-v2", 
+      stars: 66,
+      image: "🖥️"
     },
     {
-      title: "Code Craft IDE",
-      description: "A lightweight, web-based IDE with Minecraft-inspired theming. Supports multiple languages and collaborative editing.",
-      tech: ["Vue.js", "Node.js", "Socket.io", "Monaco"],
-      github: "#",
-      live: "#",
-      stars: 234,
-      image: "💻"
-    },
-    {
-      title: "Inventory Manager",
-      description: "Full-stack inventory management system with real-time updates. Features drag-and-drop interface inspired by game inventories.",
-      tech: ["Next.js", "PostgreSQL", "Prisma", "tRPC"],
-      github: "#",
-      live: "#",
-      stars: 67,
-      image: "📦"
+      title: "RareQuest Web Game",
+      description: "Pixel-style RPG browser game built in a healthcare hackathon to raise awareness about rare diseases through gameplay.",
+      tech: ["Phaser.js", "JavaScript", "HTML", "CSS"],
+      github: "https://github.com/siddhantgoel7/RareQuest",
+      stars: 94,
+      image: "🕹️"
     }
   ];
 
@@ -66,7 +53,7 @@ const ProjectsSection = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-pixel mb-4 glitch-text" data-text="PROJECTS.LOG">PROJECTS.LOG</h2>
           <div className="w-16 h-1 bg-minecraft-grass mx-auto animate-pulse"></div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <div key={index} className="retro-card group hover:scale-105 transition-all duration-300 cursor-pointer">
@@ -77,10 +64,10 @@ const ProjectsSection = () => {
                   {project.stars}
                 </div>
               </div>
-              
+
               <h3 className="font-pixel text-sm sm:text-lg mb-3 group-hover:text-minecraft-grass transition-colors">{project.title}</h3>
               <p className="text-xs sm:text-sm mb-4 leading-relaxed text-muted-foreground">{project.description}</p>
-              
+
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tech.map((tech, techIndex) => (
                   <span key={techIndex} className="pixel-border bg-muted/70 px-2 py-1 text-xs font-mono hover:bg-accent transition-colors cursor-pointer">
@@ -88,7 +75,7 @@ const ProjectsSection = () => {
                   </span>
                 ))}
               </div>
-              
+
               <div className="flex gap-4">
                 <a href={project.github} className="flex items-center gap-2 text-xs sm:text-sm hover:text-minecraft-grass transition-colors group-hover:animate-pulse">
                   <Github className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -102,7 +89,7 @@ const ProjectsSection = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="text-center mt-8 sm:mt-12">
           <button className="retro-button-blue">
             View All Projects
