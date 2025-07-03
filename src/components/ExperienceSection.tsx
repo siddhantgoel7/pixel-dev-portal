@@ -15,7 +15,7 @@ const ExperienceSection = () => {
     {
       title: "Full Stack ML Web Developer Intern",
       company: "Undergraduate Artificial Intelligence Society",
-      location: "Remote",
+      location: "Edmonton, AB",
       period: "Jan 2024 – April 2024",
       description: `Integrated ML and NLP models with a full-stack web platform to automate industrial risk report analysis. 
       Used ChatGPT APIs to enhance report generation and risk prediction, optimizing safety control workflows.`,

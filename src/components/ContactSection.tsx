@@ -1,12 +1,10 @@
-
 import { Mail, Github, Linkedin, Twitter, MessageSquare } from "lucide-react";
 
 const ContactSection = () => {
   const socialLinks = [
-    { icon: Github, label: "GitHub", url: "#", color: "hover:text-gray-300" },
-    { icon: Linkedin, label: "LinkedIn", url: "#", color: "hover:text-blue-400" },
-    { icon: Twitter, label: "Twitter", url: "#", color: "hover:text-sky-400" },
-    { icon: Mail, label: "Email", url: "mailto:john@example.com", color: "hover:text-red-400" }
+    { icon: Github, label: "GitHub", url: "https://github.com/siddhantgoel7", color: "hover:text-gray-300" },
+    { icon: Linkedin, label: "LinkedIn", url: "https://www.linkedin.com/in/siddhant-goel-/", color: "hover:text-blue-400" },
+    { icon: Mail, label: "Email", url: "mailto:siddhantgoel5@gmail.com", color: "hover:text-red-400" }
   ];
 
   return (
@@ -60,6 +58,8 @@ const ContactSection = () => {
                   <a
                     key={index}
                     href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="minecraft-block from-white/20 to-white/10 p-3 sm:p-4 text-center hover:from-white/30 hover:to-white/20 transition-all duration-300 group"
                     aria-label={social.label}
                   >
@@ -74,23 +74,36 @@ const ContactSection = () => {
           <div className="space-y-6 order-1 xl:order-2">
             <div className="minecraft-block from-white/10 to-white/5 p-4 sm:p-6">
               <h3 className="font-pixel mb-4 text-sm sm:text-base">Quick Message</h3>
-              <form className="space-y-4">
+              <form
+                className="space-y-4"
+                action="https://formspree.io/f/xyzjvprj"
+                method="POST"
+              >
                 <input
                   type="text"
+                  name="name"
+                  required
                   placeholder="Your Name"
                   className="w-full pixel-border bg-white/10 p-3 text-white placeholder-white/70 focus:bg-white/20 transition-colors text-sm sm:text-base"
                 />
                 <input
                   type="email"
+                  name="email"
+                  required
                   placeholder="your.email@example.com"
                   className="w-full pixel-border bg-white/10 p-3 text-white placeholder-white/70 focus:bg-white/20 transition-colors text-sm sm:text-base"
                 />
                 <textarea
+                  name="message"
+                  required
                   placeholder="Your message..."
                   rows={4}
                   className="w-full pixel-border bg-white/10 p-3 text-white placeholder-white/70 focus:bg-white/20 transition-colors resize-none text-sm sm:text-base"
                 ></textarea>
-                <button type="submit" className="w-full pixel-border bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-4 shadow-pixel hover:shadow-pixel-hover transition-all duration-200 font-pixel text-xs sm:text-sm hover:scale-105">
+                <button
+                  type="submit"
+                  className="w-full pixel-border bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-4 shadow-pixel hover:shadow-pixel-hover transition-all duration-200 font-pixel text-xs sm:text-sm hover:scale-105"
+                >
                   Send Message
                 </button>
               </form>
@@ -103,7 +116,7 @@ const ContactSection = () => {
             Built with ❤️ using React, TypeScript, and Tailwind CSS
           </p>
           <p className="font-mono text-xs mt-2 opacity-60">
-            © 2024 John Doe. All blocks crafted with care.
+            © 2024 Siddhant Goel. All blocks crafted with care.
           </p>
         </div>
       </div>
