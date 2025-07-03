@@ -3,10 +3,10 @@ import { User, MapPin, Calendar, Coffee } from "lucide-react";
 
 const AboutSection = () => {
   const stats = [
-    { icon: Calendar, label: "Years Experience", value: "5+" },
+    { icon: Calendar, label: "Years Experience", value: "2+" },
     { icon: Coffee, label: "Cups of Coffee", value: "∞" },
     { icon: MapPin, label: "Location", value: "Edmonton, AB" },
-    { icon: User, label: "Status", value: "Coding" }
+    { icon: User, label: "Status", value: "Chill & Code" }
   ];
 
   return (
@@ -36,7 +36,7 @@ const AboutSection = () => {
               <div className="font-mono text-xs sm:text-sm space-y-2">
                 <div><span className="text-minecraft-emerald">class</span> <span className="text-minecraft-diamond">SoftwareEngineer</span> {`{`}</div>
                 <div className="ml-4"><span className="text-minecraft-gold">constructor</span>() {`{`}</div>
-                <div className="ml-8">this.name = <span className="text-minecraft-redstone">"John Doe"</span>;</div>
+                <div className="ml-8">this.name = <span className="text-minecraft-redstone">"Siddhant Goel"</span>;</div>
                 <div className="ml-8">this.passion = <span className="text-minecraft-redstone">"Creating Amazing Software"</span>;</div>
                 <div className="ml-8">this.coffee = <span className="text-minecraft-diamond">true</span>;</div>
                 <div className="ml-4">{`}`}</div>
@@ -46,9 +46,8 @@ const AboutSection = () => {
             
             <p className="text-base sm:text-lg leading-relaxed">
               Welcome to my digital realm! I'm a passionate software engineer who believes 
-              in building applications that are both functional and beautiful. Like crafting 
-              in Minecraft, I enjoy taking complex problems and breaking them down into 
-              manageable, elegant solutions.
+              in building applications that are both functional and beautiful. 
+              I like to turn real-world problems into efficient digital solutions.
             </p>
           </div>
           
