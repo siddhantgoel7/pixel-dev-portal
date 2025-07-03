@@ -41,28 +41,47 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-muted/30">
-      <div className="container-custom">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-pixel mb-4">INVENTORY</h2>
-          <div className="w-16 h-1 bg-minecraft-grass mx-auto"></div>
+    <section className="section-padding bg-muted/30 relative overflow-hidden">
+      {/* Animated background pattern */}
+      <div className="absolute inset-0 opacity-10">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-minecraft-grass animate-ping"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 2}s`
+            }}
+          ></div>
+        ))}
+      </div>
+
+      <div className="container-custom relative z-10">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-pixel mb-4 glitch-text" data-text="INVENTORY">INVENTORY</h2>
+          <div className="w-16 h-1 bg-minecraft-grass mx-auto animate-pulse"></div>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-12">
           <div>
-            <h3 className="text-xl font-pixel mb-6">Skill Trees</h3>
+            <h3 className="text-lg sm:text-xl font-pixel mb-6 flex items-center gap-2">
+              <Code className="w-5 h-5" />
+              Skill Trees
+            </h3>
             <div className="space-y-4">
               {skillCategories.map((category, index) => {
                 const Icon = category.icon;
                 return (
-                  <div key={index} className={`minecraft-block bg-gradient-to-br ${category.color} p-6 text-white`}>
+                  <div key={index} className={`minecraft-block bg-gradient-to-br ${category.color} p-4 sm:p-6 text-white group hover:scale-105 transition-all duration-300`}>
                     <div className="flex items-center gap-3 mb-4">
-                      <Icon className="w-6 h-6" />
-                      <h4 className="font-pixel text-lg">{category.title}</h4>
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6 group-hover:animate-spin" />
+                      <h4 className="font-pixel text-sm sm:text-lg">{category.title}</h4>
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       {category.skills.map((skill, skillIndex) => (
-                        <div key={skillIndex} className="bg-white/20 pixel-border p-2 text-center text-sm font-mono">
+                        <div key={skillIndex} className="bg-white/20 pixel-border p-2 text-center text-xs sm:text-sm font-mono hover:bg-white/30 transition-colors cursor-pointer">
                           {skill}
                         </div>
                       ))}
@@ -74,13 +93,13 @@ const SkillsSection = () => {
           </div>
           
           <div>
-            <h3 className="text-xl font-pixel mb-6">Quick Access Bar</h3>
-            <div className="grid grid-cols-4 gap-2 mb-8">
+            <h3 className="text-lg sm:text-xl font-pixel mb-6">Quick Access Bar</h3>
+            <div className="grid grid-cols-4 gap-2 sm:gap-3 mb-8">
               {tools.map((tool, index) => (
                 <div key={index} className="inventory-slot group cursor-pointer">
-                  <div className="text-center">
-                    <div className="text-2xl mb-1">{tool.icon}</div>
-                    <div className="text-xs font-pixel opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 rounded whitespace-nowrap">
+                  <div className="text-center relative">
+                    <div className="text-xl sm:text-2xl mb-1 group-hover:animate-bounce">{tool.icon}</div>
+                    <div className="text-xs font-pixel opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 rounded whitespace-nowrap z-10">
                       {tool.name}
                     </div>
                   </div>
@@ -88,23 +107,29 @@ const SkillsSection = () => {
               ))}
             </div>
             
-            <div className="minecraft-block from-card to-background p-6">
-              <h4 className="font-pixel mb-4 flex items-center gap-2">
-                <Code className="w-5 h-5" />
+            <div className="retro-card">
+              <h4 className="font-pixel mb-4 flex items-center gap-2 text-sm sm:text-base">
+                <Code className="w-4 h-4 sm:w-5 sm:h-5" />
                 Currently Learning
               </h4>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <div className="w-full bg-muted rounded-full h-2">
-                    <div className="bg-minecraft-grass h-2 rounded-full" style={{width: '85%'}}></div>
+              <div className="space-y-3">
+                <div className="space-y-2">
+                  <div className="flex justify-between text-xs sm:text-sm">
+                    <span className="font-mono">Rust</span>
+                    <span className="text-minecraft-grass">85%</span>
                   </div>
-                  <span className="text-sm font-mono">Rust</span>
+                  <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
+                    <div className="bg-minecraft-grass h-2 rounded-full animate-pulse" style={{width: '85%'}}></div>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-full bg-muted rounded-full h-2">
-                    <div className="bg-minecraft-diamond h-2 rounded-full" style={{width: '60%'}}></div>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-xs sm:text-sm">
+                    <span className="font-mono">WebAssembly</span>
+                    <span className="text-minecraft-diamond">60%</span>
                   </div>
-                  <span className="text-sm font-mono">WebAssembly</span>
+                  <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
+                    <div className="bg-minecraft-diamond h-2 rounded-full animate-pulse" style={{width: '60%'}}></div>
+                  </div>
                 </div>
               </div>
             </div>

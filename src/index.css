@@ -98,44 +98,318 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-mono;
-  }
-
-  /* Pixel art styling */
-  .pixel-border {
-    border-style: solid;
-    border-width: 3px;
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
   }
 
+  /* Enhanced pixel art styling with 90's gaming feel */
+  .pixel-border {
+    border-style: solid;
+    border-width: 4px;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    position: relative;
+  }
+
+  .pixel-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
   .pixel-button {
-    @apply pixel-border bg-minecraft-grass hover:bg-minecraft-emerald text-white font-bold py-2 px-4 shadow-pixel hover:shadow-pixel-hover transition-all duration-150 transform hover:translate-x-1 hover:-translate-y-1;
+    @apply pixel-border bg-minecraft-grass hover:bg-minecraft-emerald text-white font-bold py-3 px-6 shadow-pixel hover:shadow-pixel-hover transition-all duration-200 transform hover:translate-x-2 hover:-translate-y-2 active:translate-x-1 active:-translate-y-1;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pixel-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .pixel-button:hover::after {
+    left: 100%;
   }
 
   .inventory-slot {
-    @apply w-16 h-16 bg-card border-4 border-border shadow-inset-pixel flex items-center justify-center text-2xl transition-all duration-200 hover:bg-accent;
+    @apply w-16 h-16 sm:w-20 sm:h-20 bg-card border-4 border-border shadow-inset-pixel flex items-center justify-center text-2xl transition-all duration-300 hover:bg-accent hover:scale-110 relative;
+    image-rendering: pixelated;
+  }
+
+  .inventory-slot::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);
+    pointer-events: none;
   }
 
   .minecraft-block {
-    @apply pixel-border bg-gradient-to-br shadow-pixel hover:shadow-pixel-hover transition-all duration-200 transform hover:translate-x-1 hover:-translate-y-1;
+    @apply pixel-border bg-gradient-to-br shadow-pixel hover:shadow-pixel-hover transition-all duration-300 transform hover:translate-x-2 hover:-translate-y-2 relative overflow-hidden;
+    image-rendering: pixelated;
   }
 
-  /* Typing animation */
+  .minecraft-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 25%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .minecraft-block::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 25%;
+    background: linear-gradient(0deg, rgba(0,0,0,0.2) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  /* Enhanced typing animation with cursor */
   .typewriter {
     overflow: hidden;
-    border-right: 2px solid;
+    border-right: 3px solid;
     white-space: nowrap;
-    animation: typing 3.5s steps(40, end), blink 1s infinite;
+    animation: typing 4s steps(40, end), blink 1s infinite;
+    font-family: 'Press Start 2P', monospace;
+  }
+
+  /* Retro scanlines effect */
+  .scanlines {
+    position: relative;
+  }
+
+  .scanlines::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      transparent 50%, 
+      rgba(0, 255, 0, 0.03) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    animation: scanlines 0.1s linear infinite;
+  }
+
+  /* Glitch effect for headers */
+  .glitch-text {
+    position: relative;
+    color: #fff;
+    font-family: 'Press Start 2P', monospace;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch-text::before {
+    animation: glitch 0.3s infinite;
+    color: #ff0000;
+    z-index: -1;
+  }
+
+  .glitch-text::after {
+    animation: glitch 0.3s infinite reverse;
+    color: #00ffff;
+    z-index: -2;
+  }
+
+  /* Terminal-style text selection */
+  ::selection {
+    background: #00ff00;
+    color: #000;
+  }
+
+  ::-moz-selection {
+    background: #00ff00;
+    color: #000;
   }
 }
 
 @layer components {
   .section-padding {
-    @apply py-16 px-6;
+    @apply py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8;
   }
 
   .container-custom {
-    @apply max-w-6xl mx-auto;
+    @apply max-w-7xl mx-auto;
   }
+
+  /* Enhanced responsive grid */
+  .responsive-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8;
+  }
+
+  /* Retro button variations */
+  .retro-button-green {
+    @apply pixel-button bg-minecraft-emerald hover:bg-green-600;
+  }
+
+  .retro-button-blue {
+    @apply pixel-button bg-minecraft-diamond hover:bg-blue-600;
+  }
+
+  .retro-button-gold {
+    @apply pixel-button bg-minecraft-gold hover:bg-yellow-600;
+  }
+
+  /* Enhanced card styles */
+  .retro-card {
+    @apply minecraft-block from-card to-background p-4 sm:p-6 relative;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(0,0,0,0.1) 0%, transparent 50%);
+  }
+
+  /* Terminal window style */
+  .terminal-window {
+    @apply pixel-border bg-black text-green-400 p-4 font-mono text-sm relative;
+    background-image: radial-gradient(circle, rgba(0,255,0,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .terminal-header {
+    @apply flex items-center gap-2 mb-4 pb-2 border-b border-green-400/30;
+  }
+
+  .terminal-dot {
+    @apply w-3 h-3 rounded-full;
+  }
+}
+
+/* Enhanced keyframes and animations */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 50% { border-color: transparent; }
+  51%, 100% { border-color: currentColor; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(1deg); }
+  50% { transform: translateY(-10px) rotate(0deg); }
+  75% { transform: translateY(-5px) rotate(-1deg); }
+}
+
+@keyframes pixel-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(124, 179, 66, 0.4);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 0 10px rgba(124, 179, 66, 0);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes scanlines {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes matrix-rain {
+  0% { transform: translateY(-100vh); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes neon-glow {
+  0%, 100% { text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor; }
+  50% { text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor; }
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  .font-pixel {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  
+  .typewriter {
+    font-size: 0.75rem;
+  }
+  
+  .pixel-button {
+    font-size: 0.625rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .font-pixel {
+    font-size: 1.125rem;
+  }
+  
+  .typewriter {
+    font-size: 1rem;
+  }
+}
+
+/* Enhanced shadows for depth */
+.shadow-pixel {
+  box-shadow: 
+    4px 4px 0px 0px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.shadow-pixel-hover {
+  box-shadow: 
+    6px 6px 0px 0px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+    0 0 20px rgba(124, 179, 66, 0.3);
+}
+
+.shadow-inset-pixel {
+  box-shadow: 
+    inset 3px 3px 0px 0px rgba(255, 255, 255, 0.3), 
+    inset -3px -3px 0px 0px rgba(0, 0, 0, 0.3),
+    0 0 0 2px rgba(0, 0, 0, 0.1);
 }

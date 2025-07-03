@@ -108,26 +108,59 @@ export default {
 					'50%': { borderColor: 'transparent' }
 				},
 				'float': {
-					'0%, 100%': { transform: 'translateY(0px)' },
-					'50%': { transform: 'translateY(-10px)' }
+					'0%, 100%': { 
+						transform: 'translateY(0px) rotate(0deg)' 
+					},
+					'25%': { 
+						transform: 'translateY(-5px) rotate(1deg)' 
+					},
+					'50%': { 
+						transform: 'translateY(-10px) rotate(0deg)' 
+					},
+					'75%': { 
+						transform: 'translateY(-5px) rotate(-1deg)' 
+					}
 				},
 				'pixel-pulse': {
-					'0%, 100%': { boxShadow: '0 0 0 0 rgba(124, 179, 66, 0.4)' },
-					'50%': { boxShadow: '0 0 0 8px rgba(124, 179, 66, 0)' }
+					'0%, 100%': { 
+						boxShadow: '0 0 0 0 rgba(124, 179, 66, 0.4)',
+						transform: 'scale(1)'
+					},
+					'50%': { 
+						boxShadow: '0 0 0 10px rgba(124, 179, 66, 0)',
+						transform: 'scale(1.05)'
+					}
+				},
+				'glitch': {
+					'0%': { transform: 'translate(0)' },
+					'20%': { transform: 'translate(-2px, 2px)' },
+					'40%': { transform: 'translate(-2px, -2px)' },
+					'60%': { transform: 'translate(2px, 2px)' },
+					'80%': { transform: 'translate(2px, -2px)' },
+					'100%': { transform: 'translate(0)' }
+				},
+				'scanlines': {
+					'0%': { transform: 'translateY(0)' },
+					'100%': { transform: 'translateY(4px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'typing': 'typing 3.5s steps(40, end)',
+				'typing': 'typing 4s steps(40, end)',
 				'blink': 'blink 1s infinite',
-				'float': 'float 3s ease-in-out infinite',
-				'pixel-pulse': 'pixel-pulse 2s infinite'
+				'float': 'float 4s ease-in-out infinite',
+				'pixel-pulse': 'pixel-pulse 2s infinite',
+				'glitch': 'glitch 0.3s infinite',
+				'scanlines': 'scanlines 0.1s linear infinite'
 			},
 			boxShadow: {
-				'pixel': '4px 4px 0px 0px rgba(0, 0, 0, 0.25)',
-				'pixel-hover': '6px 6px 0px 0px rgba(0, 0, 0, 0.35)',
-				'inset-pixel': 'inset 2px 2px 0px 0px rgba(255, 255, 255, 0.25), inset -2px -2px 0px 0px rgba(0, 0, 0, 0.25)',
+				'pixel': '4px 4px 0px 0px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1) inset',
+				'pixel-hover': '6px 6px 0px 0px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.2) inset, 0 0 20px rgba(124, 179, 66, 0.3)',
+				'inset-pixel': 'inset 3px 3px 0px 0px rgba(255, 255, 255, 0.3), inset -3px -3px 0px 0px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(0, 0, 0, 0.1)',
+			},
+			screens: {
+				'xs': '475px',
 			}
 		}
 	},
