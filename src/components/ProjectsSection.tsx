@@ -81,20 +81,26 @@ const ProjectsSection = () => {
                   <Github className="w-3 h-3 sm:w-4 sm:h-4" />
                   Code
                 </a>
-                <a href={project.live} className="flex items-center gap-2 text-xs sm:text-sm hover:text-minecraft-diamond transition-colors group-hover:animate-pulse">
-                  <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-                  Live Demo
-                </a>
+                
               </div>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-8 sm:mt-12">
-          <button className="retro-button-blue">
-            View All Projects
-          </button>
+          <a
+            href="https://github.com/siddhantgoel7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
+            <button className="retro-button-blue flex items-center justify-center gap-2 animate-pulse group">
+              <Github className="w-4 h-4 group-hover:animate-bounce" />
+              View All Projects
+            </button>
+          </a>
         </div>
+
       </div>
     </section>
   );
